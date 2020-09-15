@@ -1,0 +1,37 @@
+.col-first{
+    text-align: center;
+    .table-col-img{
+        width: 60px;
+        height: 60px;
+    }
+}
+.col-last{
+    text-align: center;
+    &>span{
+        font-size:14px;
+        cursor: pointer;
+        padding: 5px;
+        margin: 0 10px;
+    }
+    &>span:first-child{
+        color:red;
+    }
+    &>span:last-child{
+        color:blue;
+    }
+}
+.list-choose{
+    margin-bottom: 10px;
+}
+.goodAdd-title{
+    position: relative;
+    // padding-left: 200px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 40px;
+    .ant-btn-dashed{
+        position: absolute;
+        left: 30px;
+        top: 10px;
+    }
+}

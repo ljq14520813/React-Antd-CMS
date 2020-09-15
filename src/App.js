@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import './assets/css/app.scss';
+import 'antd/dist/antd.css';
+
+
+// import {fetchUsers} from '@/utils/api';
+import {Layout,Login} from '@/components';
+import {HashRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import store from '@/store';
 
 function App() {
+  let [token,setToken] = useState(localStorage.getItem('token'));
+  function onLogin(){
+    setToken(localStorage.getItem('token'));
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <Provider store={store}>
+        {token?<Layout />:<Login onLogin={onLogin}/>}  
+      </Provider>
+    </HashRouter>
   );
 }
 
